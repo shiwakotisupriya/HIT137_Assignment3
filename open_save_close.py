@@ -1,0 +1,70 @@
+from tkinter import filedialog, messagebox
+from PIL import Image, ImageTk
+import os
+
+def open_image(app):
+    path = filedialog.askopenfilename(
+        filetypes=[("Image Files", "*.jpg *.png *.bmp")]
+    )
+    if not path:
+        return
+
+    try:
+        app.image = Image.open(path)
+        app.original_image = app.image.copy()
+        app.image_path = path
+        app.undo_stack.clear()
+        app.redo_stack.clear()
+        show_image(app)
+        update_status(app)
+    except Exception as e:
+        messagebox.showerror("Error", str(e))
+
+def save_image(app):
+    if app.image is None:
+        messagebox.showwarning("Warning", "No image to save")
+        return
+    app.image.save(app.image_path)
+    messagebox.showinfo("Saved", "Image saved successfully")
+
+def save_as_image(app):
+    if app.image is None:
+        return
+    path = filedialog.asksaveasfilename(
+        defaultextension=".png",
+        filetypes=[("PNG", ".png"), ("JPG", ".jpg"), ("BMP", "*.bmp")]
+    )
+    if path:
+        app.image.save(path)
+        messagebox.showinfo("Saved", "Image saved successfully")
+
+def show_image(app):
+    if app.image is None:
+        return
+
+   
+    app.canvas.delete("all")
+
+ 
+    canvas_width = app.canvas.winfo_width()
+    canvas_height = app.canvas.winfo_height()
+
+
+    img_w, img_h = app.image.size
+    ratio = min(canvas_width / img_w, canvas_height / img_h)
+    new_w = int(img_w * ratio)
+    new_h = int(img_h * ratio)
+
+  
+    resized = app.image.resize((new_w, new_h), Image.Resampling.LANCZOS)
+    app.tk_image = ImageTk.PhotoImage(resized)
+
+  
+    app.canvas.create_image(canvas_width // 2, canvas_height // 2, image=app.tk_image)
+  #it helps to center the image on the app
+
+
+def update_status(app):
+    name = os.path.basename(app.image_path)
+    w, h = app.image.size
+    app.status.config(text=f"{name} | {w} x {h}")
