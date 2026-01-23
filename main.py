@@ -1,19 +1,19 @@
 import tkinter as tk
-from menubar import create_menu
-from statusbar import create_ui
-
+from view.menubar import create_menu
+from view.statusbar import create_ui
+from model.image_model import image_model
 class ImageEditorApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Assignment Third")
         self.root.geometry("900x600")
 
-
-        self.image = None
-        self.original_image = None
-        self.image_path = None
-        self.undo_stack = []
-        self.redo_stack = []
+        self.model = image_model()
+      #   self.image = None
+      #  self.original_image = None
+      # self.image_path = None
+      #  self.undo_stack = []
+      # self.redo_stack = []
 
         create_menu(self)  
         create_ui(self)

@@ -1,6 +1,6 @@
 import tkinter as tk
-from open_save_close import open_image, save_image, save_as_image
-from editor import undo, redo
+from controller.open_save_close import open_image, save_image, save_as_image
+from controller.editor import undo, redo
 import tkinter.font as tkfont
 
 def create_menu(app):

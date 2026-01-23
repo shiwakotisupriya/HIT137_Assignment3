@@ -1,5 +1,5 @@
 import tkinter as tk
-from editor import adjust_brightness, apply_grayscale, apply_blur, rotate_image
+from controller.editor import adjust_brightness, apply_grayscale, apply_blur, rotate_image
 
 def create_ui(app):
     main_frame = tk.Frame(app.root)
