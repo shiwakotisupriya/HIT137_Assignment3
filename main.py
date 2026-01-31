@@ -9,16 +9,11 @@ class ImageEditorApp:
         self.root.geometry("900x600")
 
         self.model = image_model()
-      #   self.image = None
-      #  self.original_image = None
-      # self.image_path = None
-      #  self.undo_stack = []
-      # self.redo_stack = []
 
         create_menu(self)  
         create_ui(self)
 
-        #create_menu(self) and create_ui(self) is likely stateless widget and statefullwidget which helps to create ui and function
+        #create_menu(self) and create_ui(self) is stateless widget and statefullwidget which helps to create ui and function
 
 if __name__ == "__main__":
     root = tk.Tk()   #it starts the app 

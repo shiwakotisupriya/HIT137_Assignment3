@@ -2,6 +2,7 @@ from tkinter import filedialog, messagebox
 from PIL import Image, ImageTk
 import os
 
+# Function for opening the image from the local file
 def open_image(app):
     path = filedialog.askopenfilename(
         filetypes=[("Image Files", "*.jpg *.png *.bmp")]
@@ -20,6 +21,7 @@ def open_image(app):
     except Exception as e:
         messagebox.showerror("Error", str(e))
 
+# Function to save the image after changes
 def save_image(app):
     if app.model.image is None:
         messagebox.showwarning("Warning", "No image to save")
@@ -27,6 +29,7 @@ def save_image(app):
     app.model.image.save(app.model.image_path)
     messagebox.showinfo("Saved", "Image saved successfully")
 
+# function for saving the image to new location after making changes
 def save_as_image(app):
     if app.model.image is None:
         return
@@ -38,6 +41,8 @@ def save_as_image(app):
         app.model.image.save(path)
         messagebox.showinfo("Saved", "Image saved successfully")
 
+
+# function for displaying a image
 def show_image(app):
     if app.model.image is None:
         return
@@ -61,9 +66,9 @@ def show_image(app):
 
   
     app.canvas.create_image(canvas_width // 2, canvas_height // 2, image=app.tk_image)
-  #it helps to center the image on the app
+ 
 
-
+# functiion for updating the image status such as path
 def update_status(app):
     name = os.path.basename(app.model.image_path)
     w, h = app.model.image.size

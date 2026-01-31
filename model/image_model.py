@@ -1,3 +1,6 @@
+"""
+Image model class for undo and redo
+"""
 class image_model:
     def __init__(self):
         self.image = None

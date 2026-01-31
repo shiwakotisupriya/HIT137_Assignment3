@@ -25,7 +25,7 @@ def create_ui(app):
     
     tk.Label(
         header_frame, 
-        text="🎨 Controls", 
+        text="Controls", 
         font=("Segoe UI", 16, "bold"), 
         fg="white",
         bg="#6C63FF"
@@ -37,7 +37,7 @@ def create_ui(app):
     
     tk.Label(
         brightness_section, 
-        text="☀️ Brightness", 
+        text="Brightness", 
         font=("Segoe UI", 11, "bold"), 
         fg="#FFD93D",
         bg="#16213e"
@@ -94,7 +94,7 @@ def create_ui(app):
     # Blur Button
     blur_btn = tk.Button(
         filters_frame, 
-        text="💫 Blur", 
+        text="Blur", 
         width=18, 
         bg="#3498DB",    
         fg="white",     
@@ -112,7 +112,7 @@ def create_ui(app):
     # Rotate Button
     rotate_btn = tk.Button(
         filters_frame, 
-        text="🔄 Rotate 90°", 
+        text="Rotate 90°", 
         width=18,  
         bg="#2ECC71", 
         fg="white",
@@ -134,7 +134,7 @@ def create_ui(app):
     
     app.status = tk.Label(
         status_frame, 
-        text="📷 No image loaded", 
+        text="No image loaded", 
         font=("Segoe UI", 11), 
         fg="white",
         bg="#6C63FF",

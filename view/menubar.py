@@ -11,10 +11,10 @@ def create_menu(app):
     menu_font = tkfont.Font(family="Segoe UI", size=10)
     button_font = tkfont.Font(family="Segoe UI", size=11, weight="bold")
     
-    # Upload Button with vibrant styling
+    # Image upload Button along with plesent style
     upload_btn = tk.Button(
         menu_frame,
-        text="📁 Upload",
+        text="Upload",
         font=button_font,
         bg="#6C63FF",
         fg="white",
@@ -29,10 +29,10 @@ def create_menu(app):
     )
     upload_btn.pack(side=tk.LEFT, padx=10, pady=10)
     
-    # File Menu Button
+    # File Menu  buttons i.e save save as
     file_btn = tk.Menubutton(
         menu_frame, 
-        text="💾 File",
+        text="File",
         font=button_font,
         bg="#16213e",
         fg="white",
@@ -54,7 +54,7 @@ def create_menu(app):
     # Undo Button
     undo_btn = tk.Button(
         menu_frame,
-        text="↶ Undo",
+        text="Undo",
         font=button_font,
         bg="#FF6B6B", 
         fg="white",
@@ -72,7 +72,7 @@ def create_menu(app):
     # Redo Button
     redo_btn = tk.Button(
         menu_frame,
-        text="↷ Redo",
+        text="Redo",
         font=button_font,
         bg="#4ECDC4", 
         fg="white",
@@ -90,7 +90,7 @@ def create_menu(app):
     # Exit Button
     exit_btn = tk.Button(
         menu_frame,
-        text="❌ Exit",
+        text="Exit",
         font=button_font,
         bg="#E74C3C",
         fg="white",
