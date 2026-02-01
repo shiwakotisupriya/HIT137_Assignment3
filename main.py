@@ -1,21 +1,23 @@
 import tkinter as tk
-from view.menubar import create_menu
-from view.statusbar import create_ui
-from model.image_model import image_model
-class ImageEditorApp:
+from model.image_model import ImageModel       # Model class
+from controller.editor import Editor      # Controller class
+from view.menubar import MenuBar               # Top bar
+from view.statusbar import StatusBar              # Canvash and control bar
+
+
+class EditorApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Assignment Third")
-        self.root.geometry("900x600")
+        self.root.state("zoomed")
 
-        self.model = image_model()
+        self.model  = ImageModel()
+        self.editor = Editor(self)
+        MenuBar(self)
+        StatusBar(self)
 
-        create_menu(self)  
-        create_ui(self)
-
-        #create_menu(self) and create_ui(self) is stateless widget and statefullwidget which helps to create ui and function
 
 if __name__ == "__main__":
-    root = tk.Tk()   #it starts the app 
-    app = ImageEditorApp(root)
-    root.mainloop()   #it is same as runapp() which was start the app in dart and the root.mainloop also does the same function which was done in flutter
+    root = tk.Tk()
+    app = EditorApp(root)
+    root.mainloop()
